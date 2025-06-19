@@ -5,7 +5,7 @@
 import { EndpointURLError, Meergo } from './meergo.js'
 import { uuid } from './utils.js'
 
-function main() {
+function loadSDK() {
 	// Do nothing if the browser is not supported.
 	if (!uuid) {
 		return
@@ -60,4 +60,4 @@ function main() {
 	})
 }
 
-main()
+loadSDK()

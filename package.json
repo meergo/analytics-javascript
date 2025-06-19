@@ -1,16 +1,42 @@
 {
-	"name": "meergo-javascript-sdk",
-	"version": "0.0.1",
-	"main": "meergo.cjs",
-	"module": "meergo.js",
+	"name": "@meergo/javascript-sdk",
+	"version": "0.9.0",
+	"description": "JavaScript SDK for sending events to the Meergo Customer Data Platform (CDP)",
+	"main": "index.cjs",
+	"module": "index.js",
 	"exports": {
-		"require": "./meergo.cjs",
-		"import": "./meergo.js"
+		"require": "./index.cjs",
+		"import": "./index.js"
 	},
+	"files": [
+		"LICENSE",
+		"README.md",
+		"dist/meergo.bundle.cjs",
+		"dist/meergo.es6.min.js",
+		"dist/meergo.min.js",
+		"elections.js",
+		"group.js",
+		"index.cjs",
+		"index.d.ts",
+		"index.js",
+		"meergo.js",
+		"options.js",
+		"queue.js",
+		"sender.js",
+		"session.js",
+		"storage.js",
+		"user.js",
+		"utils.js"
+	],
 	"type": "module",
 	"devDependencies": {
 		"@swc/cli": "0.7.7",
 		"@swc/core": "1.12.0",
 		"esbuild": "0.25.1"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/open2b/javascript-sdk.git"
 	}
 }

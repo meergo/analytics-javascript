@@ -6,12 +6,13 @@
 	},
 	"tasks": {
 		"commit": "npm install && deno fmt && deno task build",
-		"bundle": "deno lint && deno test --fail-fast && npx esbuild main.js --bundle --sourcemap --outfile=build/meergo.bundle.js",
-		"transpile": "npx swc build/meergo.bundle.js -o build/meergo.es5.js",
-		"minify": "npx esbuild build/meergo.es5.js --outfile=dist/meergo.min.js --minify --sourcemap --format=iife --target=es5",
+		"bundle": "deno lint && deno test --fail-fast && npx esbuild index.js --bundle --sourcemap --outfile=dist/meergo.bundle.js",
+		"transpile": "npx swc dist/meergo.bundle.js -o dist/meergo.es5.js",
+		"minify": "npx esbuild dist/meergo.es5.js --outfile=dist/meergo.min.js --minify --sourcemap --format=iife --target=es5",
 		"build": "deno task bundle && deno task transpile && deno task minify",
 		"build:es6": "deno lint && deno test --fail-fast && npx esbuild meergo.js --bundle --sourcemap --define:'globalThis=window' --format=esm --target=es6 --minify --outfile=dist/meergo.es6.min.js",
-		"build:cjs": "deno lint && deno test --fail-fast && npx esbuild meergo.js --bundle --sourcemap --define:'globalThis=window' --format=cjs --target=esnext --outfile=dist/meergo.bundle.cjs"
+		"build:cjs": "deno lint && deno test --fail-fast && npx esbuild meergo.js --bundle --sourcemap --define:'globalThis=window' --format=cjs --target=esnext --outfile=dist/meergo.bundle.cjs",
+		"publish": "deno task build && npm publish --access public"
 	},
 	"fmt": {
 		"lineWidth": 120,
@@ -24,7 +25,7 @@
 		"include": [
 			"elections.js",
 			"group.js",
-			"main.js",
+			"index.js",
 			"meergo.cjs",
 			"meergo.js",
 			"options.js",

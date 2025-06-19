@@ -5,6 +5,7 @@
 		"@std/uuid": "jsr:@std/uuid@^1.0.7"
 	},
 	"tasks": {
+		"commit": "npm install && deno fmt && deno task build",
 		"bundle": "deno lint && deno test --fail-fast && npx esbuild main.js --bundle --sourcemap --outfile=build/meergo.bundle.js",
 		"transpile": "npx swc build/meergo.bundle.js -o build/meergo.es5.js",
 		"minify": "npx esbuild build/meergo.es5.js --outfile=dist/meergo.min.js --minify --sourcemap --format=iife --target=es5",

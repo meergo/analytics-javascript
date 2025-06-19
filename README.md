@@ -14,6 +14,7 @@
   - [ES6 Module Compatibility](#es6-module-compatibility)
 - [CJS Module](#cjs-module)
 - [Execute Tests](#execute-tests)
+- [Before you commit](#before-you-commit)
 
 ## Install dependencies
 
@@ -118,4 +119,20 @@ Run:
 
 ```sh
 deno test
+```
+
+## Before you commit
+
+Before committing, run the `commit` task to format the code and execute tests:
+
+```sh
+deno commit
+```
+
+This task runs the following commands:
+
+```sh
+npm install
+deno fmt
+deno task build
 ```

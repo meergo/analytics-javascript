@@ -1,3 +1,7 @@
+// MIT License
+// Copyright (c) 2025 Open2b
+// See the LICENSE file for full text.
+
 import { assert, assertEquals } from '@std/assert'
 import { isStrategy, Options } from './options.js'
 

@@ -1,3 +1,7 @@
+// MIT License
+// Copyright (c) 2025 Open2b
+// See the LICENSE file for full text.
+
 import { assert, assertEquals, AssertionError } from '@std/assert'
 import { DOMParser } from 'https://deno.land/x/deno_dom/deno-dom-wasm.ts'
 import * as uuid from '@std/uuid/v4'

@@ -1,3 +1,7 @@
+// MIT License
+// Copyright (c) 2025 Open2b
+// See the LICENSE file for full text.
+
 import { decodeBase64, encodeBase64 } from './utils.js'
 
 const storeNotSupported = new Error('store is not supported')

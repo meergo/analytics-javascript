@@ -1,3 +1,7 @@
+// MIT License
+// Copyright (c) 2025 Open2b
+// See the LICENSE file for full text.
+
 const isIE = !globalThis.ActiveXObject && 'ActiveXObject' in globalThis
 
 // campaign returns a Map with the UTM parameters of the campaign.

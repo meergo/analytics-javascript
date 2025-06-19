@@ -1,3 +1,7 @@
+// MIT License
+// Copyright (c) 2025 Open2b
+// See the LICENSE file for full text.
+
 import { assert, assertEquals, AssertionError, assertNotEquals, assertThrows } from '@std/assert'
 import { FakeTime } from '@std/testing/time'
 import * as uuid from '@std/uuid/v4'

@@ -1,3 +1,7 @@
+// MIT License
+// Copyright (c) 2025 Open2b
+// See the LICENSE file for full text.
+
 // Steps executed by the 'analytics_test.js' tests.
 
 const timestamp = '2024-01-01T00:00:01.000Z'

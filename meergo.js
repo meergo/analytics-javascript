@@ -1,3 +1,7 @@
+// MIT License
+// Copyright (c) 2025 Open2b
+// See the LICENSE file for full text.
+
 import { campaign, debug, isPlainObject, isURL, onVisibilityChange, parseQueryString, uuid } from './utils.js'
 import Elections from './elections.js'
 import Group from './group.js'

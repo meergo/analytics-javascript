@@ -1,3 +1,7 @@
+// MIT License
+// Copyright (c) 2025 Open2b
+// See the LICENSE file for full text.
+
 import { assert, assertEquals } from '@std/assert'
 import * as uuid from '@std/uuid/v4'
 import { _uuid_imp, campaign, decodeBase64, encodeBase64, isURL, onVisibilityChange } from './utils.js'

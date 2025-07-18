@@ -75,7 +75,7 @@
       "dependencies": [
         "npm:@swc/cli@0.7.8",
         "npm:@swc/core@1.13.0",
-        "npm:esbuild@0.25.1"
+        "npm:esbuild@0.25.6"
       ]
     }
   }

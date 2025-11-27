@@ -25,7 +25,7 @@ meergo.page('Home')
 #### ✅ Compatible with all browsers (ES5, IIFE):
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@meergo/javascript-sdk/dist/meergo.min.js"></script>
+<script src="https://cdn.meergo.com/meergo.min.js"></script>
 <script>
 	const meergo = new Meergo('your-write-key', 'https://example.com/api/v1/events')
 	meergo.page('Home')
@@ -36,7 +36,7 @@ meergo.page('Home')
 
 ```html
 <script type="module">
-	import { Meergo } from 'https://cdn.jsdelivr.net/npm/@meergo/javascript-sdk/dist/meergo.es6.min.js'
+	import { Meergo } from 'https://cdn.meergo.com/meergo.es6.min.js'
 
 	const meergo = new Meergo('your-write-key', 'https://example.com/api/v1/events')
 	meergo.page('Home')

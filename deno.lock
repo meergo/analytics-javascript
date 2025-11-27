@@ -13,8 +13,6 @@
     "jsr:@std/path@^1.1.3": "1.1.3",
     "jsr:@std/testing@^1.0.16": "1.0.16",
     "jsr:@std/uuid@^1.0.9": "1.0.9",
-    "npm:@swc/cli@0.7.8": "0.7.8_@swc+core@1.13.0",
-    "npm:@swc/core@1.13.0": "1.13.0",
     "npm:esbuild@0.25.6": "0.25.6"
   },
   "jsr": {
@@ -1032,8 +1030,8 @@
     ],
     "packageJson": {
       "dependencies": [
-        "npm:@swc/cli@0.7.8",
-        "npm:@swc/core@1.13.0",
+        "npm:@swc/cli@~0.7.9",
+        "npm:@swc/core@^1.15.3",
         "npm:esbuild@0.25.6"
       ]
     }

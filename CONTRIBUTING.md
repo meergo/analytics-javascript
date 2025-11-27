@@ -74,10 +74,9 @@ To update Deno to the latest available release:
 
 1. Upgrade Deno: `deno upgrade`
 2. Confirm the installed version: `deno --version`
-3. Update SWC: `deno install --allow-scripts=npm:@swc/core`
-4. Refresh dependencies: `deno update`
-5. Run the full test suite before committing: `deno task commit`
-6. Update the `deno-version` field in `.github/workflows/build.yml` to match the new version
+3. Refresh dependencies: `deno update`
+4. Run the full test suite before committing: `deno task commit`
+5. Update the `deno-version` field in `.github/workflows/build.yml` to match the new version
 
 ## Update SWC to the Latest Version
 

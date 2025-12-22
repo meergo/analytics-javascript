@@ -175,25 +175,37 @@ class Options {
 		}
 		const receive = (error, status, body) => {
 			debug(this.debug)?.('received endpoint response: error =', error, ', status =', status + ', body =', body)
-			if (error != null || (status !== 200 && status !== 404)) {
+			if (error != null || (status !== 200 && status !== 401 && status !== 404)) {
 				retry(error, status)
 				return
 			}
+			// Status 404.
 			if (status === 404) {
-				const msg = body === 'error: invalid write key'
-					? `The specified write key '${writeKey}' is invalid.`
-					: `The specified endpoint URL '${endpoint}' does not exist.`
-				log(msg)
+				log(`The specified endpoint URL '${endpoint}' does not exist.`)
 				return
 			}
 			try {
 				const s = JSON.parse(body)
-				if (typeof s !== 'object' || s == null || !isStrategy(s.strategy)) {
+				if (typeof s !== 'object' || s == null) {
+					throw null
+				}
+				// Status 401.
+				if (status === 401) {
+					if (s.error?.code !== 'Unauthorized') {
+						throw null
+					}
+					log(`The specified write key '${writeKey}' is invalid.`)
+					return
+				}
+				// Status 200.
+				if (!isStrategy(s.strategy)) {
 					throw null
 				}
 				this.strategy = s.strategy
 			} catch {
-				log(`The response body from the endpoint URL '${endpoint}' is invalid.`)
+				log(
+					`The endpoint URL '${endpoint}' returned an unexpected response body. Please verify that the endpoint URL is correct.`,
+				)
 				return
 			}
 			if (callback != null) {
@@ -204,8 +216,8 @@ class Options {
 		if (globalThis.fetch && typeof globalThis.fetch === 'function') {
 			fetch(url)
 				.then((response) => {
-					// Read the body if the status is 200 or 400.
-					if (response.status === 200 || response.status === 404) {
+					// Read the body if the status is 200 or 401.
+					if (response.status === 200 || response.status === 401) {
 						response.text()
 							.then((body) => receive(null, response.status, body))
 							.catch((error) => receive(error))

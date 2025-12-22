@@ -9,7 +9,8 @@ You'll need:
 - [Node.js](https://nodejs.org/) (with npm)
 - [Deno](https://deno.com/)
 
-Copy the Deno version specified under the `deno-version` field in `.github/workflows/build.yml`, then run the following command to upgrade Deno to that exact version:
+Copy the Deno version specified under the `deno-version` field in `.github/workflows/build.yml`, then run the following
+command to upgrade Deno to that exact version:
 
 ```sh
 deno upgrade --version <deno-version>
@@ -82,10 +83,8 @@ To update Deno to the latest available release:
 
 To update SWC to the latest release:
 
-1. Update the npm packages:
-   `npm install @swc/core@latest @swc/cli@latest --save-dev`
-2. Run the full test suite before committing:
-   `deno task commit`
+1. Update the npm packages: `npm install @swc/core@latest @swc/cli@latest --save-dev`
+2. Run the full test suite before committing: `deno task commit`
 
 ## Update esbuild to the Latest Version
 

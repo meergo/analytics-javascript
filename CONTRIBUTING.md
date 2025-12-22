@@ -90,10 +90,8 @@ To update SWC to the latest release:
 
 To update esbuild to the latest release:
 
-1. Update the npm package:
-   `npm install esbuild@latest --save-dev`
-2. Run the full test suite before committing:
-   `deno task commit`
+1. Update the npm package: `npm install esbuild@latest --save-dev`
+2. Run the full test suite before committing: `deno task commit`
 
 ## Publish a new version to NPM
 
@@ -116,8 +114,7 @@ To update esbuild to the latest release:
    npm version patch --no-git-tag-version
    git add package.json package-lock.json
    ```
-   (Use `npm version minor` if you want to release a minor version.)
-   Then copy the new version number.
+   (Use `npm version minor` if you want to release a minor version.) Then copy the new version number.
 
 4. Commit and create a tag with the version number:
    ```sh
@@ -129,7 +126,7 @@ To update esbuild to the latest release:
    ```sh
    git log -1 --oneline --decorate
    ```
- 
+
 6. Push the commit and all tags:
    ```sh
    git push

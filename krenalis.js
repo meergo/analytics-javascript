@@ -51,7 +51,7 @@ class Krenalis {
 	#isLeader = false
 	#onFollowerQueue = null // is null when it is not the leader
 	#debug
-	#consent
+	#consents
 
 	// constructor returns a new Krenalis instance. writeKey is the write key,
 	// endpoint denotes the endpoint URL, and options is an object containing
@@ -541,12 +541,12 @@ class Krenalis {
 			}
 		}
 
-		if (this.#consent != null) {
-			event.context.consent = this.#consent;
+		if (this.#consents != null) {
+			event.context.consents = this.#consents;
 		}
 
 		// Apply user-provided context last so it can override automatic
-		// enrichments (campaign, timezone, session, consent, etc).
+		// enrichments (campaign, timezone, session, consents, etc).
 		if ('context' in options) {
 			this.#mergeContext(event.context, options.context)
 		}
@@ -790,8 +790,8 @@ class Krenalis {
 	}
 
 	#setupConsentManagement() {
-		const onConsent = (consent) => {
-			this.#consent = consent
+		const onConsent = (consents) => {
+			this.#consents = consents
 		}
 		if (window.ketch != null) {
 			setupKetch(onConsent)

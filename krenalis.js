@@ -11,6 +11,7 @@ import Sender from './sender.js'
 import Session from './session.js'
 import Storage from './storage.js'
 import User from './user.js'
+import setupKetch from './cmp/ketch.js'
 
 const version = '0.0.0'
 const none = () => {}
@@ -50,6 +51,7 @@ class Krenalis {
 	#isLeader = false
 	#onFollowerQueue = null // is null when it is not the leader
 	#debug
+	#consents
 
 	// constructor returns a new Krenalis instance. writeKey is the write key,
 	// endpoint denotes the endpoint URL, and options is an object containing
@@ -84,6 +86,8 @@ class Krenalis {
 		this.#queue.debug(this.#options.debug)
 		this.#user = new User(this.#storage)
 		this.#group = new Group(this.#storage)
+
+		this.#setupConsentManagement()
 
 		// Participate in leader elections.
 		const electionsState = new ElectionsState(this.#keysPrefix)
@@ -537,8 +541,12 @@ class Krenalis {
 			}
 		}
 
+		if (this.#consents != null) {
+			event.context.consents = this.#consents;
+		}
+
 		// Apply user-provided context last so it can override automatic
-		// enrichments (campaign, timezone, session, etc).
+		// enrichments (campaign, timezone, session, consents, etc).
 		if ('context' in options) {
 			this.#mergeContext(event.context, options.context)
 		}
@@ -779,6 +787,15 @@ class Krenalis {
 				throw new Error('Invalid arguments')
 		}
 		return options
+	}
+
+	#setupConsentManagement() {
+		const onConsent = (consents) => {
+			this.#consents = consents
+		}
+		if (window.ketch != null) {
+			setupKetch(onConsent)
+		}
 	}
 
 	// mergeTraits merges traits into the current user's or group's traits,
